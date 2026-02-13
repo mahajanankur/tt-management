@@ -13,6 +13,8 @@ fi
 
 echo ""
 echo "2. Starting Docker containers..."
+docker-compose down
+docker rm -f timetable-mysql || true
 docker-compose up -d
 
 if [ $? -ne 0 ]; then

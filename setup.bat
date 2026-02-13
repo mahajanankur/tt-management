@@ -12,6 +12,8 @@ if %errorlevel% neq 0 (
 
 echo.
 echo 2. Starting Docker containers...
+docker-compose down
+docker rm -f timetable-mysql
 docker-compose up -d
 if %errorlevel% neq 0 (
     echo Error starting Docker. Please check if Docker Desktop is running.
@@ -22,8 +24,9 @@ if %errorlevel% neq 0 (
 echo.
 echo Setup Complete!
 echo ---------------------------------------------------
-echo 1. Run 'node index.js' to start the application.
+echo 1. Starting the application...
 echo 2. Open http://localhost:3000 in your browser.
 echo 3. Login with admin / admin
 echo ---------------------------------------------------
+node index.js
 pause
